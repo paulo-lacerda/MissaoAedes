@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 	private void Movimentar ()
 	{
 
-		anim.SetFloat ("run", Mathf.Abs (Input.GetAxis ("Horizontal")));
+		anim.SetFloat ("andar", Mathf.Abs (Input.GetAxis ("Horizontal")));
 
 		if (Input.GetAxisRaw ("Horizontal") > 0) {
 			transform.Translate (Vector2.right * velocidade * Time.deltaTime);
