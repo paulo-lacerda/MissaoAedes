@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
 
 			rb2d.AddForce(new Vector2(0,forcaPulo));
 
-			anim.SetTrigger("jump");
+			anim.SetTrigger("pulando");
 
 		}
 	}
