@@ -15,11 +15,14 @@ public class Player : MonoBehaviour
 	public float raio;
 	public Color debugColisao = Color.red;
 	public float forcaPulo = 300;
+	public Component halo;
 
+	public bool ativarRepelente = false;
 
 	void Start ()
 	{
 
+		halo = GetComponent("Halo"); 
 
 
 		rb2d = GetComponent<Rigidbody2D> ();
@@ -33,6 +36,9 @@ public class Player : MonoBehaviour
 		Movimentar ();
 		EstaNoChao ();
 		ControlarEntradas ();
+
+		(gameObject.GetComponent("Halo") as Behaviour).enabled = ativarRepelente;
+
 	}
 
 
@@ -107,7 +113,44 @@ public class Player : MonoBehaviour
 	}
 
 
-}
+
+	void OnCollisionEnter2D(Collision2D colisor){
+
+		if (colisor.gameObject.tag == "Repelente") {
+		
+			gameObject.tag = "PlayerRepelente";
+
+			ativarRepelente = true;
+			Contador ();
+
+
+			}
+
+			Destroy (GameObject.FindWithTag ("Repelente"));
+		}
+
+	void Contador(){
+
+		float tempoRestante = 5.0f;
+
+		tempoRestante -= Time.deltaTime;
+		if (tempoRestante < 0) {
+
+			ativarRepelente = false;
+
+
+		}
+
+
+	}
+
+
+
+
+
+	}
+
+
 
 
 
