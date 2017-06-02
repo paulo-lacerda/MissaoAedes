@@ -17,12 +17,15 @@ public class Player : MonoBehaviour
 	public float forcaPulo = 300;
 	public Component halo;
 
+	public float tempoRepelente = 10.0f;
 	public bool ativarRepelente = false;
 
 	void Start ()
 	{
 
 		halo = GetComponent("Halo"); 
+
+
 
 
 		rb2d = GetComponent<Rigidbody2D> ();
@@ -37,7 +40,13 @@ public class Player : MonoBehaviour
 		EstaNoChao ();
 		ControlarEntradas ();
 
+		TempoRepelente ();
+
+	
+
 		(gameObject.GetComponent("Halo") as Behaviour).enabled = ativarRepelente;
+
+
 
 	}
 
@@ -121,28 +130,37 @@ public class Player : MonoBehaviour
 			gameObject.tag = "PlayerRepelente";
 
 			ativarRepelente = true;
-			Contador ();
 
+			tempoRepelente = 10.0f;
+
+
+
+
+			
+
+
+			Destroy (GameObject.FindWithTag ("Repelente"));
 
 			}
 
-			Destroy (GameObject.FindWithTag ("Repelente"));
+			
 		}
 
-	void Contador(){
 
-		float tempoRestante = 5.0f;
 
-		tempoRestante -= Time.deltaTime;
-		if (tempoRestante < 0) {
 
+
+	void TempoRepelente(){
+	
+		tempoRepelente -= Time.deltaTime;
+		if (tempoRepelente < 1) {
 			ativarRepelente = false;
 
-
+			gameObject.tag = "PlayerNormal";
 		}
-
-
+	
 	}
+	
 
 
 

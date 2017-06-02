@@ -24,6 +24,12 @@ public class BarraVida : MonoBehaviour {
 
 		barra ();
 
+		Debug.Log (conteudo.fillAmount);
+		if (conteudo.fillAmount == 0) {
+		
+			Debug.Log ("MORREU");
+		}
+
 		
 	}
 
@@ -32,6 +38,7 @@ public class BarraVida : MonoBehaviour {
 		if (reduzir == true) {
 
 			conteudo.fillAmount -= 0.005f;
+
 		}
 
 	}
