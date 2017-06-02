@@ -10,7 +10,9 @@ public class Pontos : MonoBehaviour {
 
 	public static Pontos instancia;
 
-	public GUIText txt;
+	public Text txt;
+
+	public int ponto =1;
 
 	void Awake(){
 
@@ -21,19 +23,21 @@ public class Pontos : MonoBehaviour {
 
 	void Start () {
 
-		txt = gameObject.GetComponent<GUIText> ();
-	
-		txt.text = "Pontos: " + pontos;
+		pontos = 0;
+
+		AdicionarPontos ();
+		
+		txt.text = " " + pontos;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
-	public void AdicionarPontos(int _ponto){ 
-		pontos += _ponto;
-		txt.text = "Pontos:  " + pontos;
+	public void AdicionarPontos(){ 
+		pontos=pontos +1;
+		txt.text = " " + pontos;
 
 	}
 
