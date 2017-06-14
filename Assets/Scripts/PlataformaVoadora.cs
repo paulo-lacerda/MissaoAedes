@@ -44,7 +44,9 @@ public class PlataformaVoadora : MonoBehaviour {
 
 			else {
 
-				transform.Translate ( -Vector2.left * velocidade * Time.deltaTime);
+				transform.Translate (-Vector2.left * velocidade * Time.deltaTime);
+
+
 			}
 
 		}

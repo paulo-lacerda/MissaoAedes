@@ -6,6 +6,9 @@ public class Player : MonoBehaviour
 
 // Use this for initialization
 	public Transform player;
+	public Transform plataformaVoadora;
+	public Transform plataformas;
+
 	public int velocidade = 20;
 	public Animator anim;
 	public Rigidbody2D rb2d;
@@ -124,6 +127,16 @@ public class Player : MonoBehaviour
 
 
 	void OnCollisionEnter2D(Collision2D colisor){
+
+		if(colisor.gameObject.tag == "PlataformaVoadora"){
+
+			transform.SetParent (parent: plataformaVoadora);
+		}
+
+		if(colisor.gameObject.tag == "Plataforma") {
+
+			transform.SetParent (parent: plataformas);
+		}
 
 		if (colisor.gameObject.tag == "Repelente") {
 		
