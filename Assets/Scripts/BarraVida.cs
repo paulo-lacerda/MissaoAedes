@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BarraVida : MonoBehaviour {
 
 	// Use this for initialization
+
+	public Animator anim;
+
 
 	[SerializeField]
 	private float barraVida;
@@ -24,10 +28,14 @@ public class BarraVida : MonoBehaviour {
 
 		barra ();
 
-		Debug.Log (conteudo.fillAmount);
 		if (conteudo.fillAmount == 0) {
 		
+			//SceneManager.LoadScene ("MenuPrincipal");
+			anim.SetTrigger("morrer");
+
 			Debug.Log ("MORREU");
+
+			SceneManager.LoadScene ("GameOver");
 		}
 
 		

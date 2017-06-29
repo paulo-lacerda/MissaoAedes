@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Player : MonoBehaviour
@@ -19,16 +20,24 @@ public class Player : MonoBehaviour
 	public Color debugColisao = Color.red;
 	public float forcaPulo = 300;
 	public Component halo;
+	public AudioSource SomPulo;
+	public bool ativarFill;
 
 	public float tempoRepelente = 10.0f;
 	public bool ativarRepelente = false;
+
+	[SerializeField]
+	private float BarraEnergia;
+
+	[SerializeField]
+	private Image ConteudoEnergia;
 
 	void Start ()
 	{
 
 		halo = GetComponent("Halo"); 
 
-
+		ConteudoEnergia.fillAmount = 0;
 
 
 		rb2d = GetComponent<Rigidbody2D> ();
@@ -100,6 +109,9 @@ public class Player : MonoBehaviour
 
 			anim.SetTrigger("pulando");
 
+
+			SomPulo.Play ();
+		
 		}
 	}
 
@@ -146,6 +158,9 @@ public class Player : MonoBehaviour
 
 			tempoRepelente = 10.0f;
 
+			ativarFill = true;
+
+
 
 
 
@@ -165,11 +180,20 @@ public class Player : MonoBehaviour
 
 	void TempoRepelente(){
 	
+		if (ativarFill == true) {
+
 		tempoRepelente -= Time.deltaTime;
+			ConteudoEnergia.fillAmount = tempoRepelente / 10;
 		if (tempoRepelente < 1) {
 			ativarRepelente = false;
 
 			gameObject.tag = "PlayerNormal";
+
+
+
+			}
+
+
 		}
 	
 	}

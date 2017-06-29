@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class Pontos : MonoBehaviour {
 
 	// Use this for initialization
-	public static int pontos;
+	public  int pontos;
 
 	public static Pontos instancia;
 
 	public Text txt;
 
-	public int ponto =1;
+	public int ponto =2;
 
 	void Awake(){
 
@@ -23,7 +23,6 @@ public class Pontos : MonoBehaviour {
 
 	void Start () {
 
-		pontos = 0;
 
 		AdicionarPontos ();
 		
@@ -41,7 +40,5 @@ public class Pontos : MonoBehaviour {
 
 	}
 
-	public static void Inicializar(){
-		pontos = 0;
-	}
+
 }

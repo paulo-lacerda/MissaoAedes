@@ -16,9 +16,11 @@ public class Itens : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D colisor)
 	{
-		if (colisor.gameObject.tag == "Player")
+		if (colisor.gameObject.tag == "PlayerNormal" || colisor.gameObject.tag == "PlayerRepelente")
 		{
-			Destroy (gameObject);
+	
+		
+			Destroy(this, 5f);
 		}
 	}
 }

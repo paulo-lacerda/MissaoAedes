@@ -45,7 +45,6 @@ public class FocoDengue : MonoBehaviour {
 			pontos.AdicionarPontos ();
 
 			Destroy(gameObject);
-			conteudo.fillAmount -= 0.3f;
 
 
 		

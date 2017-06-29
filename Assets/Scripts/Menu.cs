@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class Menu : MonoBehaviour {
@@ -16,9 +17,24 @@ public class Menu : MonoBehaviour {
 
 
 	 public void play(){
+
+		SceneManager.LoadScene ("PlayerSelect");
 	
-		Application.LoadLevel ("c1");
-	
+	}
+	public void playBoy(){
+
+		SceneManager.LoadScene ("CBoy1");
+
+	}
+	public void playGirl(){
+
+		SceneManager.LoadScene ("CGirl1");
+
+	}
+
+	public void MenuPrincipal(){
+
+		SceneManager.LoadScene ("MenuPrincipal");
 	}
 
 	public void sair(){
